@@ -161,3 +161,13 @@ func verificaSeEventoDeveSerCancelado(vaiChover: Bool, temperatura: Double) -> S
 }
 
 //14 - Desenvolva uma função que receba uma senha (tipo String) e a hora do dia (tipo Int, representando a hora). O acesso é permitido se a senha for "1234" e for entre as 9h e as 17h. A função deve retornar "Acesso Permitido" se ambas as condições forem verdadeiras, e "Acesso Negado" se qualquer uma das condições não for atendida.
+
+func verificaAcesso(senha: String, horaDoDia: Int) -> String {
+    let estaEntre9hrE17hr = horaDoDia >= 9 && horaDoDia <= 17
+    
+    if senha == "1234" && estaEntre9hrE17hr {
+        return "Acesso Permitido"
+    } else {
+        return "Acesso Negado"
+    }
+}
