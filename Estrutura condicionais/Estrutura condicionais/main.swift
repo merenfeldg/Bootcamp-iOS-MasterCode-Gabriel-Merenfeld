@@ -87,7 +87,16 @@ func verificaAcessoEvento(idade: Int) -> Bool {
 
 //8 - Crie uma função que receba um score de crédito (tipo Int) de 0 a 1000 e retorne se a pessoa tem um "Bom crédito" (score acima de 700), "Crédito regular" (score entre 300 e 700) ou "Mau crédito" (abaixo de 300).
 
-
+func verificaScoreDeCredito(score: Int) -> String {
+    if score > 700 {
+        return "Bom crédito"
+    }
+    else if score >= 300 && score <= 700 {
+        return "Crédito regular"
+    } else {
+        return "Mau crédito"
+    }
+}
 
 //9 - Implemente uma função que receba um dia da semana (tipo String) e retorne "Dia útil" se for de segunda a sexta, e "Final de semana" se for sábado ou domingo.
 
