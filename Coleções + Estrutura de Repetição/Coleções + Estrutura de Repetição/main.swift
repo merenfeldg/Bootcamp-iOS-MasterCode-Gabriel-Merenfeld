@@ -55,6 +55,15 @@ for numero in listaNumerosEx4.reversed() {
 
 // MARK: Exercício 5: Crie um array de números inteiros. Utilizando o for, percorra o array e soma cada valor. Por fim, imprima o valor total de todos os números
 
+var listaNumerosEx5: [Int] = [1, 2, 3, 4, 5]
+var soma: Int = 0
+
+for numero in listaNumerosEx5 {
+    soma += numero
+}
+
+print(soma)
+
 
 
 // MARK: DESAFIOS
