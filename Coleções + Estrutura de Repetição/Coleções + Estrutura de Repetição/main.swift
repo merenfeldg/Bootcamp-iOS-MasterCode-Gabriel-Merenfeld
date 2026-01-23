@@ -2,6 +2,16 @@ import Foundation
 
 // MARK: Exercício 1: Crie uma lista vazia e depois adicione 3 itens. Por fim, utilize o for para printar esses elementos
 
+var listaNumerosEx1: [Int] = []
+
+listaNumerosEx1.append(1)
+listaNumerosEx1.append(2)
+listaNumerosEx1.append(3)
+
+for numero in listaNumerosEx1 {
+    print(numero)
+}
+
 // MARK: Exercício 2: Crie um dicionario String:String com 3 itens. Imprima utilizando o for a chave de cada um deles.
 
 // MARK: Exercício 3: Adicionar chave e valor em um dicionário e imprimir ambos utilizando o for print("\(chave): \(valor)")
