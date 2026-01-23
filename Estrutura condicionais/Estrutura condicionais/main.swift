@@ -19,6 +19,19 @@ func verificaSeAlunoPassou(nota1: Double, nota2: Double) -> String {
 //2- Crie uma função "desconto" que receba um parâmetro (total: Double). Caso o total (parâmetro) seja menor que 100.0, dê 10% de desconto. Caso o valor esteja entre 100.0 e 200.0 dê 15% de desconto. Valores acima de 200.0 dê 20% de desconto. A função tem que ter um retorno do tipo Double que vai ser o total (parâmetro) com o desconto aplicado de acordo com as condições citadas.
 // Dica: return total * 0.9 (isso significa o valor com 10% de desconto)
 
+func aplicaDesconto(total: Double) -> Double {
+    if total < 100.0 {
+        let desconto = total * 0.1
+        return total - desconto
+    }
+    else if total >= 100.0 && total <= 200.0 {
+        let desconto = total * 0.15
+        return total - desconto
+    } else {
+        let desconto = total * 0.2
+        return total - desconto
+    }
+}
 
 //3- Crie uma função semáforo que receba uma parâmetro do tipo string. Se o valor recebido no parâmetro for vermelho, retorne "PARE", se for amarelo, retorne "ATENÇÃO", se for verde, retorne "SIGA EM FRENTE", se não, retorne "PARÂMETRO INVÁLIDO" caso o valor recebido seja diferente dos já citados.
 
