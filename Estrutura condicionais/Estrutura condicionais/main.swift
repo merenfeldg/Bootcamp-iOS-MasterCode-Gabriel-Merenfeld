@@ -140,6 +140,13 @@ func verificaAlturaDaPessoa(_ altura: Double) -> String {
 
 //12 - Crie uma função que receba a idade de uma pessoa (tipo Int) e o tempo de serviço em anos (tipo Int). Uma pessoa é elegível para promoção se tiver mais de 30 anos e mais de 5 anos de serviço. A função deve retornar "Promoção Elegível" se ambas as condições forem verdadeiras, e "Promoção Não Elegível" caso contrário.
 
+func verificarSeEhElegivelParaPromocao(idade: Int, tempoServicoAnos: Int) -> String {
+    if idade > 30 && tempoServicoAnos > 5 {
+        return "Promoção Elegível"
+    } else {
+        return "Promoção Não Elegível"
+    }
+}
 
 //13 - Implemente uma função que receba a previsão de chuva (tipo Bool) e a temperatura (tipo Double). O evento ao ar livre deve ser cancelado se chover (true) ou se a temperatura for inferior a 15 graus. A função deve retornar "Evento Cancelado" se alguma das condições for verdadeira, e "Evento Confirmado" caso contrário.
 
