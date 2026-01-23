@@ -12,7 +12,21 @@ for numero in listaNumerosEx1 {
     print(numero)
 }
 
+
+
 // MARK: Exercício 2: Crie um dicionario String:String com 3 itens. Imprima utilizando o for a chave de cada um deles.
+
+var dicionarioEx2: [String:String] = [:]
+
+dicionarioEx2["RJ"] = "Vasco"
+dicionarioEx2["SP"] = "Palmeiras"
+dicionarioEx2["MG"] = "Cruzeiro"
+
+for (chave, _) in dicionarioEx2 {
+    print(chave)
+}
+
+
 
 // MARK: Exercício 3: Adicionar chave e valor em um dicionário e imprimir ambos utilizando o for print("\(chave): \(valor)")
 
