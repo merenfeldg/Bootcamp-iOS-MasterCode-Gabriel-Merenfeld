@@ -81,6 +81,9 @@ func verificaAcessoFesta(foiConvidado: Bool) -> String {
 
 //7 - Implemente uma função que receba a idade de uma pessoa e determine se ela tem direito a entrada gratuita em um evento. Entrada gratuita é concedida para pessoas com menos de 5 anos ou mais de 65 anos.
 
+func verificaAcessoEvento(idade: Int) -> Bool {
+    return idade < 5 || idade > 65
+}
 
 //8 - Crie uma função que receba um score de crédito (tipo Int) de 0 a 1000 e retorne se a pessoa tem um "Bom crédito" (score acima de 700), "Crédito regular" (score entre 300 e 700) ou "Mau crédito" (abaixo de 300).
 
