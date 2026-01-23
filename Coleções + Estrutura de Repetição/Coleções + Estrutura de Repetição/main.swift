@@ -14,29 +14,32 @@ import Foundation
 
 // MARK: DESAFIOS
 
+// MARK: DESAFIO 1
 //Você tem uma lista de compras com alguns itens.
-//Desafio:
 //Crie uma coleção com 5 itens de mercado
 //Mostre todos os itens no console
 //👉 Objetivo: entender Array e acesso aos elementos.
 
 
+
+// MARK: DESAFIO 2
 //Você tem uma lista com nomes de alunos.
-//Desafio:
 //Crie uma coleção com alguns nomes
 //Mostre quantos alunos existem na lista
 //👉 Objetivo: usar .count.
 
 
+
+// MARK: DESAFIO 3
 //Você tem uma lista de frutas.
-//Desafio:
 //Verifique se a fruta "banana" existe na lista
 //Mostre uma mensagem dizendo se existe ou não
 //👉 Objetivo: trabalhar com contains.
 
 
+
+// MARK: DESAFIO 4
 //Você tem uma lista de tarefas.
-//Desafio:
 //Adicione uma nova tarefa à lista
 //Mostre a lista atualizada
 //👉 Objetivo: adicionar elementos em uma coleção.
@@ -44,42 +47,49 @@ import Foundation
 
 // MARK: 🔁 Desafios Básicos — Estruturas de Repetição
 
-
+// MARK: DESAFIO 1
 //Você precisa mostrar números de 1 até 10.
-//Desafio:
 //Use uma estrutura de repetição para mostrar esses números
 //👉 Objetivo: entender for.
 
 
+
+// MARK: DESAFIO 2
 //Você tem uma lista de nomes.
-//Desafio:
 //Use um laço de repetição para mostrar cada nome
 //👉 Objetivo: percorrer um Array com for.
 
 
+
+// MARK: DESAFIO 3
 //Você tem uma lista de números.
-//Desafio:
 //Some todos os números da lista
 //Mostre o resultado final
 //👉 Objetivo: repetição + lógica simples.
 
 
+
+// MARK: DESAFIO 4
 //Você quer mostrar números de 0 até 5.
-//Desafio:
 //Use uma estrutura de repetição para isso
 //👉 Objetivo: entender intervalo (0...5).
 
-// Desafios Mistos (Coleções + Repetição)
+
+
+// MARK: Desafios Mistos - Coleções + Repetição
+
+// MARK: DESAFIO MISTO 1
 // Lista de alunos
 //Você tem uma lista de alunos com idades.
-//Desafio:
 //Guarde os nomes em uma coleção
 //Use repetição para mostrar cada nome
 //👉 Objetivo: unir Array + for.
 
+
+
+// MARK: DESAFIO MISTO 2
 //Verificando notas
 //Você tem uma lista de notas.
-//Desafio:
 //Use repetição para verificar quais notas são maiores ou iguais a 7
 //Mostre apenas essas notas
 //👉 Objetivo: for + condição.
