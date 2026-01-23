@@ -65,6 +65,9 @@ func decidirPasseio(eFimDeSemana: Bool, tenhoDinheiro: Bool) {
 
 //5- Crie uma função que receba dois parâmetros do tipo Double e caso o valor do 1° parâmetro seja maior que o valor do 2° parâmetro. Retorne "Bola", caso contrário, retorne "Banana"
 
+func compararValores(valor1: Double, valor2: Double) -> String {
+    return valor1 > valor2 ? "Bola" : "Banana"
+}
 
 //6- Crie uma função que receba um parâmetro (foiConvidado: Bool). Caso o valor seja true, print "Liberado para a festa" Caso contrário, print "Infelizmente você não foi convidado"
 
