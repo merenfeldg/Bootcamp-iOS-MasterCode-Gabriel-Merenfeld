@@ -127,6 +127,16 @@ func verificaSenhaEhForte(_ senha: String) -> String {
 
 //11 - Crie uma função que receba a altura de uma pessoa em metros (tipo Double) e retorne "Baixa" se for menor que 1.60 metros, "Média" se for entre 1.60 e 1.85 metros, e "Alta" se for maior que 1.85 metros.
 
+func verificaAlturaDaPessoa(_ altura: Double) -> String {
+    if altura < 1.60 {
+        return "Baixa"
+    }
+    else if altura >= 1.60 && altura <= 1.85 {
+        return "Média"
+    } else {
+        return "Alta"
+    }
+}
 
 //12 - Crie uma função que receba a idade de uma pessoa (tipo Int) e o tempo de serviço em anos (tipo Int). Uma pessoa é elegível para promoção se tiver mais de 30 anos e mais de 5 anos de serviço. A função deve retornar "Promoção Elegível" se ambas as condições forem verdadeiras, e "Promoção Não Elegível" caso contrário.
 
