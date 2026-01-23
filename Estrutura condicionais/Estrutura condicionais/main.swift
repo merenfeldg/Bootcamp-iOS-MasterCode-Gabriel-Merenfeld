@@ -54,6 +54,13 @@ func semaforo(valor: String) -> String {
 //4- Crie uma função que receba dois parâmetros (eFimDeSemana: Bool, tenhoDinheiro: Bool) e caso
 //seja final de semana e você tenha dinheiro, print "VAMOS PASSEAR", caso contrário, print "VAMOS FICAR EM CASA"
 
+func decidirPasseio(eFimDeSemana: Bool, tenhoDinheiro: Bool) {
+    if eFimDeSemana && tenhoDinheiro {
+        print("VAMOS PASSEAR")
+    } else {
+        print("VAMOS FICAR EM CASA")
+    }
+}
 
 
 //5- Crie uma função que receba dois parâmetros do tipo Double e caso o valor do 1° parâmetro seja maior que o valor do 2° parâmetro. Retorne "Bola", caso contrário, retorne "Banana"
