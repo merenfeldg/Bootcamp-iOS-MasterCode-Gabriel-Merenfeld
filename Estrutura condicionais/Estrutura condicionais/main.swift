@@ -112,6 +112,18 @@ func verificaTipoDeDia(dia: String) -> String {
 // var nome: String = "caio"
 // print(nome.count) -> vai printar a quantidade de caracteres
 
+func verificaSenhaEhForte(_ senha: String) -> String {
+    let quantidadeDigitos = senha.count
+    
+    if quantidadeDigitos < 6 {
+        return "Senha fraca"
+    }
+    else if quantidadeDigitos >= 6 && quantidadeDigitos <= 8 {
+        return "Senha média"
+    } else {
+        return "Senha forte"
+    }
+}
 
 //11 - Crie uma função que receba a altura de uma pessoa em metros (tipo Double) e retorne "Baixa" se for menor que 1.60 metros, "Média" se for entre 1.60 e 1.85 metros, e "Alta" se for maior que 1.85 metros.
 
