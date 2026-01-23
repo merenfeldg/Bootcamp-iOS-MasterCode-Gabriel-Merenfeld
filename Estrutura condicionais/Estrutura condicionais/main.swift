@@ -150,5 +150,14 @@ func verificarSeEhElegivelParaPromocao(idade: Int, tempoServicoAnos: Int) -> Str
 
 //13 - Implemente uma função que receba a previsão de chuva (tipo Bool) e a temperatura (tipo Double). O evento ao ar livre deve ser cancelado se chover (true) ou se a temperatura for inferior a 15 graus. A função deve retornar "Evento Cancelado" se alguma das condições for verdadeira, e "Evento Confirmado" caso contrário.
 
+func verificaSeEventoDeveSerCancelado(vaiChover: Bool, temperatura: Double) -> String {
+    let estaFrio = temperatura < 15
+    
+    if vaiChover || estaFrio {
+        return "Evento Cancelado"
+    } else {
+        return "Evento Confirmado"
+    }
+}
 
 //14 - Desenvolva uma função que receba uma senha (tipo String) e a hora do dia (tipo Int, representando a hora). O acesso é permitido se a senha for "1234" e for entre as 9h e as 17h. A função deve retornar "Acesso Permitido" se ambas as condições forem verdadeiras, e "Acesso Negado" se qualquer uma das condições não for atendida.
