@@ -100,6 +100,12 @@ func verificaScoreDeCredito(score: Int) -> String {
 
 //9 - Implemente uma função que receba um dia da semana (tipo String) e retorne "Dia útil" se for de segunda a sexta, e "Final de semana" se for sábado ou domingo.
 
+func verificaTipoDeDia(dia: String) -> String {
+    let diaConvertido = dia.lowercased()
+    let ehFinalDeSemana = diaConvertido == "sábado" || diaConvertido == "domingo"
+    
+    return ehFinalDeSemana ? "Final de semana" : "Dia útil"
+}
 
 //10 - Desenvolva uma função que receba uma senha (tipo String) e retorne "Senha fraca" se tiver menos de 6 caracteres, "Senha média" se tiver entre 6 e 8 caracteres, e "Senha forte" se tiver mais de 8 caracteres.
 // Dica: Para descobrir a quantidade de caracteres de uma string, basta utilizar a propriedade .count
