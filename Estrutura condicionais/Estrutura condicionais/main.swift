@@ -71,6 +71,13 @@ func compararValores(valor1: Double, valor2: Double) -> String {
 
 //6- Crie uma função que receba um parâmetro (foiConvidado: Bool). Caso o valor seja true, print "Liberado para a festa" Caso contrário, print "Infelizmente você não foi convidado"
 
+func verificaAcessoFesta(foiConvidado: Bool) -> String {
+    if foiConvidado {
+        return "Liberado para a festa"
+    } else {
+        return "Infelizmente você não foi convidado"
+    }
+}
 
 //7 - Implemente uma função que receba a idade de uma pessoa e determine se ela tem direito a entrada gratuita em um evento. Entrada gratuita é concedida para pessoas com menos de 5 anos ou mais de 65 anos.
 
