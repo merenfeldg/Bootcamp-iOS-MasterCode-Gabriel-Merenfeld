@@ -4,6 +4,17 @@ import Foundation
 
 //1- Crie uma função que receba dois parâmetros (nota1: Double, nota2: Double) e retorne "Aluno aprovado” se a media das notas for maior ou igual a 7. Caso contrário retorne "Aluno reprovado"
 
+func verificaSeAlunoPassou(nota1: Double, nota2: Double) -> String {
+    let mediaNotas: Double = (nota1 + nota2) / 2
+    let mediaMinima: Double = 7.0
+    
+    if mediaNotas >= mediaMinima {
+        return "Aluno aprovado"
+    } else {
+        return "Aluno reprovado"
+    }
+}
+
 
 //2- Crie uma função "desconto" que receba um parâmetro (total: Double). Caso o total (parâmetro) seja menor que 100.0, dê 10% de desconto. Caso o valor esteja entre 100.0 e 200.0 dê 15% de desconto. Valores acima de 200.0 dê 20% de desconto. A função tem que ter um retorno do tipo Double que vai ser o total (parâmetro) com o desconto aplicado de acordo com as condições citadas.
 // Dica: return total * 0.9 (isso significa o valor com 10% de desconto)
