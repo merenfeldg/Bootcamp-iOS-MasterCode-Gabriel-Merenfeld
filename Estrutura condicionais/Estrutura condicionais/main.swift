@@ -35,7 +35,21 @@ func aplicaDesconto(total: Double) -> Double {
 
 //3- Crie uma função semáforo que receba uma parâmetro do tipo string. Se o valor recebido no parâmetro for vermelho, retorne "PARE", se for amarelo, retorne "ATENÇÃO", se for verde, retorne "SIGA EM FRENTE", se não, retorne "PARÂMETRO INVÁLIDO" caso o valor recebido seja diferente dos já citados.
 
-
+func semaforo(valor: String) -> String {
+    let valorEmMinusculo = valor.lowercased()
+    
+    if valorEmMinusculo == "vermelho" {
+        return "PARE"
+    }
+    else if valorEmMinusculo == "amarelo" {
+        return "ATENÇÃO"
+    }
+    else if valorEmMinusculo == "verde" {
+        return "SIGA EM FRENTE"
+    } else {
+        return "PARÂMETRO INVÁLIDO"
+    }
+}
 
 //4- Crie uma função que receba dois parâmetros (eFimDeSemana: Bool, tenhoDinheiro: Bool) e caso
 //seja final de semana e você tenha dinheiro, print "VAMOS PASSEAR", caso contrário, print "VAMOS FICAR EM CASA"
