@@ -30,6 +30,16 @@ for (chave, _) in dicionarioEx2 {
 
 // MARK: Exercício 3: Adicionar chave e valor em um dicionário e imprimir ambos utilizando o for print("\(chave): \(valor)")
 
+var dicionarioEx3: [String:String] = [:]
+
+dicionarioEx3["Nome"] = "Gabriel"
+
+dicionarioEx3.forEach { chave, valor in
+    print("\(chave): \(valor)")
+}
+
+
+
 // MARK: Exercício 4: Crie um array com 3 itens. Percorra o array utilizando o for, e realize o print de cada item. Realize o reverso do array que você criou.
 
 // MARK: Exercício 5: Crie um array de números inteiros. Utilizando o for, percorra o array e soma cada valor. Por fim, imprima o valor total de todos os números
