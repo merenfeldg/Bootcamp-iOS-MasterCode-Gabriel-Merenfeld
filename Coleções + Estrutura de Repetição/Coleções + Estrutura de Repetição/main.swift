@@ -171,6 +171,10 @@ print("O resultado da soma foi de: \(somaDesafio3)")
 //Use uma estrutura de repetição para isso
 //👉 Objetivo: entender intervalo (0...5).
 
+for numero in 0...5 {
+    print("\(numero)")
+}
+
 
 
 // MARK: Desafios Mistos - Coleções + Repetição
