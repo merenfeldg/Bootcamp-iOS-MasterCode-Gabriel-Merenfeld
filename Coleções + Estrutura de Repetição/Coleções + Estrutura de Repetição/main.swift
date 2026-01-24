@@ -22,6 +22,8 @@ dicionarioEx2["RJ"] = "Vasco"
 dicionarioEx2["SP"] = "Palmeiras"
 dicionarioEx2["MG"] = "Cruzeiro"
 
+quebraLinhaNoConsole()
+
 for (chave, _) in dicionarioEx2 {
     print(chave)
 }
@@ -34,6 +36,7 @@ var dicionarioEx3: [String:String] = [:]
 
 dicionarioEx3["Nome"] = "Gabriel"
 
+quebraLinhaNoConsole()
 dicionarioEx3.forEach { chave, valor in
     print("\(chave): \(valor)")
 }
@@ -44,11 +47,17 @@ dicionarioEx3.forEach { chave, valor in
 
 var listaNumerosEx4: [Int] = [1, 2, 3]
 
+quebraLinhaNoConsole()
+print("ORDEM CRESCENTE:")
+
 for numero in listaNumerosEx4 {
-    print(numero)
+    print(" - \(numero)")
 }
+
+print("ORDEM DECRESCENTE:")
+
 for numero in listaNumerosEx4.reversed() {
-    print(numero)
+    print(" - \(numero)")
 }
 
 
@@ -62,7 +71,8 @@ for numero in listaNumerosEx5 {
     soma += numero
 }
 
-print(soma)
+quebraLinhaNoConsole()
+print("A soma dos números é: \(soma)")
 
 
 
@@ -77,9 +87,14 @@ print(soma)
 let listaCompras: [String] = ["Arroz", "Farofa", "Ovo", "Batata inglesa", "Frango"]
 let quantidadeDeItensNoCarrinho = listaCompras.count
 
+quebraLinhaNoConsole()
+print("LISTA DE COMPRAS:")
+
 for index in 0..<quantidadeDeItensNoCarrinho {
-    print("\(index)º alimento: \(listaCompras[index])")
+    print(" - \(index)º alimento: \(listaCompras[index])")
 }
+
+
 
 // MARK: DESAFIO 2
 //Você tem uma lista com nomes de alunos.
@@ -90,7 +105,10 @@ for index in 0..<quantidadeDeItensNoCarrinho {
 let listaAlunos: [String] = ["Gabriel", "Lorran", "Lucas", "Beatriz", "Clara", "Eduardo", "Sofia", "Carolina"]
 let quantidadeDeAlunos = listaAlunos.count
 
+quebraLinhaNoConsole()
 print("Na sala tem: \(quantidadeDeAlunos) alunos")
+
+
 
 // MARK: DESAFIO 3
 //Você tem uma lista de frutas.
@@ -101,11 +119,15 @@ print("Na sala tem: \(quantidadeDeAlunos) alunos")
 let listaFrutas: [String] = ["Uva", "Morango", "Abacaxi", "Pêssego", "Banana", "Amora"]
 let existeBanana = listaFrutas.contains("Banana")
 
+quebraLinhaNoConsole()
+
 if existeBanana {
     print("Temos temos banana na lista!")
 } else {
     print("Nao temos banana na lista!")
 }
+
+
 
 // MARK: DESAFIO 4
 //Você tem uma lista de tarefas.
@@ -117,11 +139,14 @@ var listaTarefas: [String] = ["Estudar Swift", "Estudar para a faculdade", "Estu
 
 listaTarefas.append("Escrever diário")
 
-print("\nLISTA ATUALIZADA:")
+quebraLinhaNoConsole()
+print("LISTA DE TAREFAS ATUALIZADA:")
 
 for tarefa in listaTarefas {
-    print(tarefa)
+    print(" - \(tarefa)")
 }
+
+
 
 // MARK: 🔁 Desafios Básicos — Estruturas de Repetição
 
@@ -130,10 +155,11 @@ for tarefa in listaTarefas {
 //Use uma estrutura de repetição para mostrar esses números
 //👉 Objetivo: entender for.
 
-print("\nLISTAGEM NÚMEROS:")
+quebraLinhaNoConsole()
+print("LISTAGEM NÚMEROS DE 1 A 10:")
 
 for numero in 1...10 {
-    print("\(numero)")
+    print(" - \(numero)")
 }
 
 
@@ -145,11 +171,14 @@ for numero in 1...10 {
 
 let listaCantores: [String] = ["Cazuza", "Rita Lee", "Charlie Brown Jr", "MC Marcinho", "Tim Maia", "Lô Borges", "Vanessa da Mata", "Djavan", "Lulu Santos"]
 
-print("\nNA MINHA PLAYLIST TEM:")
+quebraLinhaNoConsole()
+print("NA MINHA PLAYLIST TEM:")
 
 for cantor in listaCantores {
-    print(cantor)
+    print(" - \(cantor)")
 }
+
+
 
 // MARK: DESAFIO 3
 //Você tem uma lista de números.
@@ -164,15 +193,21 @@ for numero in listaNumerosDesafio3 {
     somaDesafio3 += numero
 }
 
+quebraLinhaNoConsole()
 print("O resultado da soma foi de: \(somaDesafio3)")
+
+
 
 // MARK: DESAFIO 4
 //Você quer mostrar números de 0 até 5.
 //Use uma estrutura de repetição para isso
 //👉 Objetivo: entender intervalo (0...5).
 
+quebraLinhaNoConsole()
+print("LISTAR NÚMEROS DE 0 A 5:")
+
 for numero in 0...5 {
-    print("\(numero)")
+    print(" - \(numero)")
 }
 
 
@@ -194,7 +229,8 @@ for (nome, _) in dicionarioAlunos {
     listaNomesAlunos.append(nome)
 }
 
-print("\nNOMES DOS ALUNOS:")
+quebraLinhaNoConsole()
+print("NOMES DOS ALUNOS:")
 
 for nome in listaNomesAlunos {
     print(" - \(nome)")
@@ -212,10 +248,15 @@ for nome in listaNomesAlunos {
 let listaNotasAlunos: [Double] = [8.5, 4.3, 10.0, 6.9, 9.2, 5.7, 7.0]
 let notaMinimaAprovacao: Double = 7.0
 
-print("\nNOTAS QUE ESTÃO NA MÉDIA:")
+quebraLinhaNoConsole()
+print("NOTAS QUE ESTÃO NA MÉDIA:")
 
 for nota in listaNotasAlunos {
     if nota >= notaMinimaAprovacao {
         print(" - \(nota)")
     }
+}
+
+func quebraLinhaNoConsole() {
+    print("\n")
 }
