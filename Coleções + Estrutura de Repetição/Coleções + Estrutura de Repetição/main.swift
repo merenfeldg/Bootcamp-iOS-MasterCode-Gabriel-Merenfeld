@@ -87,7 +87,10 @@ for index in 0..<quantidadeDeItensNoCarrinho {
 //Mostre quantos alunos existem na lista
 //👉 Objetivo: usar .count.
 
+let listaAlunos: [String] = ["Gabriel", "Lorran", "Lucas", "Beatriz", "Clara", "Eduardo", "Sofia", "Carolina"]
+let quantidadeDeAlunos = listaAlunos.count
 
+print("Na sala tem: \(quantidadeDeAlunos) alunos")
 
 // MARK: DESAFIO 3
 //Você tem uma lista de frutas.
