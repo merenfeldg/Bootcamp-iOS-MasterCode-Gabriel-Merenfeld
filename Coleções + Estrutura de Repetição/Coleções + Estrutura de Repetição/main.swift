@@ -208,3 +208,14 @@ for nome in listaNomesAlunos {
 //Use repetição para verificar quais notas são maiores ou iguais a 7
 //Mostre apenas essas notas
 //👉 Objetivo: for + condição.
+
+let listaNotasAlunos: [Double] = [8.5, 4.3, 10.0, 6.9, 9.2, 5.7, 7.0]
+let notaMinimaAprovacao: Double = 7.0
+
+print("\nNOTAS QUE ESTÃO NA MÉDIA:")
+
+for nota in listaNotasAlunos {
+    if nota >= notaMinimaAprovacao {
+        print(" - \(nota)")
+    }
+}
