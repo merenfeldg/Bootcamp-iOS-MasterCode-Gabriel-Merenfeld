@@ -118,6 +118,7 @@ var listaTarefas: [String] = ["Estudar Swift", "Estudar para a faculdade", "Estu
 listaTarefas.append("Escrever diário")
 
 print("\nLISTA ATUALIZADA:")
+
 for tarefa in listaTarefas {
     print(tarefa)
 }
@@ -156,7 +157,14 @@ for cantor in listaCantores {
 //Mostre o resultado final
 //👉 Objetivo: repetição + lógica simples.
 
+let listaNumerosDesafio3: [Int] = [10, 9, 8, 7, 6, 5]
+var somaDesafio3: Int = 0
 
+for numero in listaNumerosDesafio3 {
+    somaDesafio3 += numero
+}
+
+print("O resultado da soma foi de: \(somaDesafio3)")
 
 // MARK: DESAFIO 4
 //Você quer mostrar números de 0 até 5.
