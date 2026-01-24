@@ -98,7 +98,14 @@ print("Na sala tem: \(quantidadeDeAlunos) alunos")
 //Mostre uma mensagem dizendo se existe ou não
 //👉 Objetivo: trabalhar com contains.
 
+let listaFrutas: [String] = ["Uva", "Morango", "Abacaxi", "Pêssego", "Banana", "Amora"]
+let existeBanana = listaFrutas.contains("Banana")
 
+if existeBanana {
+    print("Temos temos banana na lista!")
+} else {
+    print("Nao temos banana na lista!")
+}
 
 // MARK: DESAFIO 4
 //Você tem uma lista de tarefas.
