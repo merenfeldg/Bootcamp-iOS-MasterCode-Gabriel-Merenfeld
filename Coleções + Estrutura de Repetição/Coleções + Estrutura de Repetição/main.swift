@@ -129,6 +129,12 @@ for tarefa in listaTarefas {
 //Use uma estrutura de repetição para mostrar esses números
 //👉 Objetivo: entender for.
 
+print("\nLISTAGEM NÚMEROS:")
+
+for numero in 1...10 {
+    print("\(numero)")
+}
+
 
 
 // MARK: DESAFIO 2
