@@ -74,7 +74,12 @@ print(soma)
 //Mostre todos os itens no console
 //👉 Objetivo: entender Array e acesso aos elementos.
 
+let listaCompras: [String] = ["Arroz", "Farofa", "Ovo", "Batata inglesa", "Frango"]
+let quantidadeDeItensNoCarrinho = listaCompras.count
 
+for index in 0..<quantidadeDeItensNoCarrinho {
+    print("\(index)º alimento: \(listaCompras[index])")
+}
 
 // MARK: DESAFIO 2
 //Você tem uma lista com nomes de alunos.
