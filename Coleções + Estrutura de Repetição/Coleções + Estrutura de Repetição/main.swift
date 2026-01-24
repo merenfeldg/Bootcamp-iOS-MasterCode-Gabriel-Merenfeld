@@ -113,6 +113,14 @@ if existeBanana {
 //Mostre a lista atualizada
 //👉 Objetivo: adicionar elementos em uma coleção.
 
+var listaTarefas: [String] = ["Estudar Swift", "Estudar para a faculdade", "Estudar Inglês", "Treinar musculação", "Meditar"]
+
+listaTarefas.append("Escrever diário")
+
+print("\nLISTA ATUALIZADA:")
+for tarefa in listaTarefas {
+    print(tarefa)
+}
 
 // MARK: 🔁 Desafios Básicos — Estruturas de Repetição
 
