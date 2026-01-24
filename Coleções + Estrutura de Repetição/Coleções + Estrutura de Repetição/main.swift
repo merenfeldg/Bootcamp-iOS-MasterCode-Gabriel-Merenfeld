@@ -186,6 +186,20 @@ for numero in 0...5 {
 //Use repetição para mostrar cada nome
 //👉 Objetivo: unir Array + for.
 
+var dicionarioAlunos: [String: Int] = ["Henrique": 17, "Joana": 16, "Marcela": 17, "Roberta": 18, "Pedro": 16]
+var listaNomesAlunos: [String] = []
+
+//Já que idade eu não vou usar, decidi desconsiderar esse valor usando o underline
+for (nome, _) in dicionarioAlunos {
+    listaNomesAlunos.append(nome)
+}
+
+print("\nNOMES DOS ALUNOS:")
+
+for nome in listaNomesAlunos {
+    print(" - \(nome)")
+}
+
 
 
 // MARK: DESAFIO MISTO 2
