@@ -142,7 +142,13 @@ for numero in 1...10 {
 //Use um laço de repetição para mostrar cada nome
 //👉 Objetivo: percorrer um Array com for.
 
+let listaCantores: [String] = ["Cazuza", "Rita Lee", "Charlie Brown Jr", "MC Marcinho", "Tim Maia", "Lô Borges", "Vanessa da Mata", "Djavan", "Lulu Santos"]
 
+print("\nNA MINHA PLAYLIST TEM:")
+
+for cantor in listaCantores {
+    print(cantor)
+}
 
 // MARK: DESAFIO 3
 //Você tem uma lista de números.
