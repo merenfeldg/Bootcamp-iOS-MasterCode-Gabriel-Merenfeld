@@ -57,6 +57,34 @@ print("Saldo atual: R$\(saldoAtual)")
 
 //   Para usar este método, crie uma instância da classe, chame o método e armazene a informação retornada em uma variável. Em seguida, imprima essa variável para visualizar os detalhes do filme.
 
+class Filme {
+    let titulo: String
+    let diretor: String
+    let ano: Int
+    
+    init(titulo: String, diretor: String, ano: Int) {
+        self.titulo = titulo
+        self.diretor = diretor
+        self.ano = ano
+    }
+    
+    func exibirInfo() -> String {
+        return """
+        INFORMAÇÕES DO FILME:
+            - Nome: \(titulo)
+            - Diretor: \(diretor)
+            - Ano: \(ano)
+        """
+    }
+}
+
+let filmeClick: Filme = Filme(titulo: "Click", diretor: "Frank Coraci", ano: 2006)
+let informacoesFilme: String = filmeClick.exibirInfo()
+
+pularLinhaNoConsole()
+print(informacoesFilme)
+
+
 
 // Exercício 3: Sistema de Registro de Alunos
 // Objetivo: Criar uma classe chamada 'Aluno' para armazenar dados e calcular a média de notas de alunos em uma escola.
@@ -72,3 +100,7 @@ print("Saldo atual: R$\(saldoAtual)")
 
 //   Para utilizar este método, crie uma instância da classe, invoque o método para calcular a média, armazene esse valor em uma variável e imprima a média para visualizar.
 // print("Média das notas de \(aluno.nome): \(media)")
+
+func pularLinhaNoConsole() {
+    print("\n")
+}
