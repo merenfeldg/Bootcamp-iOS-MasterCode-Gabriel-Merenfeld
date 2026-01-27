@@ -81,7 +81,7 @@ class Filme {
 let filmeClick: Filme = Filme(titulo: "Click", diretor: "Frank Coraci", ano: 2006)
 let informacoesFilme: String = filmeClick.exibirInfo()
 
-pularLinhaNoConsole()
+pulaLinhaNoConsole()
 print(informacoesFilme)
 
 
@@ -101,6 +101,36 @@ print(informacoesFilme)
 //   Para utilizar este método, crie uma instância da classe, invoque o método para calcular a média, armazene esse valor em uma variável e imprima a média para visualizar.
 // print("Média das notas de \(aluno.nome): \(media)")
 
-func pularLinhaNoConsole() {
+class Aluno {
+    let nome: String
+    let notas: [Double]
+    
+    init(nome: String, notas: [Double]) {
+        self.nome = nome
+        self.notas = notas
+    }
+    
+    func calcularMedia() -> Double {
+        var somaDasNotas: Double = 0
+        let quantidadeNotas: Double = Double(notas.count)
+        
+        for nota in notas {
+            somaDasNotas += nota
+        }
+        
+        return somaDasNotas / quantidadeNotas
+    }
+}
+
+let alunoGabriel: Aluno = Aluno(nome: "Gabriel", notas: [10.0, 8.5, 7.0])
+let mediaGabriel: Double = alunoGabriel.calcularMedia()
+
+pulaLinhaNoConsole()
+print("Média das notas de \(alunoGabriel.nome): \(mediaGabriel)")
+
+
+
+
+func pulaLinhaNoConsole() {
     print("\n")
 }
