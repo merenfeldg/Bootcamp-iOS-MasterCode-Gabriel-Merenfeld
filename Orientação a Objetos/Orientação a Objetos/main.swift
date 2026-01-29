@@ -298,6 +298,31 @@ print("- VALOR ATUAL: \(saldoAtualD3)")
 //Não permita acesso direto à senha
 //A validação deve acontecer dentro da classe
 
+class Usuario {
+    private var senha: String
+    
+    init(senha: String) {
+        self.senha = senha
+    }
+    
+    func alterarSenha(novaSenha: String) {
+        if novaSenha.count >= 6 {
+            senha = novaSenha
+        }
+    }
+    func mostrarSenha() {
+        print("SENHA: \(senha)")
+    }
+}
+
+pulaLinhaNoConsole()
+var usuarioGabriel: Usuario = Usuario(senha: "Garfield123")
+
+usuarioGabriel.alterarSenha(novaSenha: "1234")
+usuarioGabriel.mostrarSenha()
+
+usuarioGabriel.alterarSenha(novaSenha: "PatolinoVermelho123")
+usuarioGabriel.mostrarSenha()
 
 //Desafio 5 – Funcionários da Empresa
 // Descrição
