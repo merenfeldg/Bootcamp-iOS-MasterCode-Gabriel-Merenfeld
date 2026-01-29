@@ -183,6 +183,7 @@ for pagamento in pagamentos {
 }
 
 
+
 //Desafio 2 – Notificações do App
 // Descrição
 //Um app envia notificações por diferentes canais.
@@ -224,6 +225,8 @@ for notificacao in notificacoes {
     notificacao.enviar(mensagem: "Eu quero pastel de queijo")
 }
 
+
+
 //Desafio 3 – Cofre Digital
 
 // Descrição
@@ -240,6 +243,45 @@ for notificacao in notificacoes {
 //⚠️ Regras
 //O saldo não pode ser acessado diretamente
 //Todo acesso deve passar pelos métodos da classe
+
+class Cofre {
+    private var saldo: Double
+    
+    init(valor: Double) {
+        saldo = valor
+    }
+    
+    func consultarSaldo() -> Double {
+        return saldo
+    }
+    
+    func depositarValor(_ valor: Double) {
+        saldo += valor
+    }
+    
+    func sacarValor(_ valor: Double) -> Double {
+        if saldo >= valor {
+            saldo -= valor
+            return valor
+        }
+        return 0.0
+    }
+}
+pulaLinhaNoConsole()
+
+var cofreGabriel: Cofre = Cofre(valor: 12000)
+var saldoAtualD3: Double = cofreGabriel.consultarSaldo()
+print("- VALOR ATUAL: R$\(saldoAtualD3)")
+
+cofreGabriel.depositarValor(500)
+saldoAtualD3 = cofreGabriel.consultarSaldo()
+print("- VALOR ATUAL: R$\(saldoAtualD3)")
+
+var valorSacado: Double = cofreGabriel.sacarValor(100)
+saldoAtualD3 = cofreGabriel.consultarSaldo()
+print("- SAQUEI O VALOR: R$\(valorSacado)")
+print("- VALOR ATUAL: \(saldoAtualD3)")
+
 
 
 //Desafio 4 – Usuário Seguro
