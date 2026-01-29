@@ -341,6 +341,53 @@ usuarioGabriel.mostrarSenha()
 //Não use if ou switch
 //O salário não pode ser um valor público e alterável diretamente
 
+protocol SalarioProtocol {
+    func calcularSalario() -> Double
+}
+
+class Clt: SalarioProtocol {
+    
+    private let salarioBase: Double
+    private let beneficios: Double
+    
+    init(salarioBase: Double, beneficios: Double) {
+        self.salarioBase = salarioBase
+        self.beneficios = beneficios
+    }
+    
+    func calcularSalario() -> Double {
+        return salarioBase + beneficios
+    }
+}
+
+class Pj: SalarioProtocol {
+    
+    private let valorHora: Double
+    private let horasTrabalhadas: Double
+    
+    init(valorHora: Double, horasTrabalhadas: Double) {
+        self.valorHora = valorHora
+        self.horasTrabalhadas = horasTrabalhadas
+    }
+    
+    func calcularSalario() -> Double {
+        return valorHora * horasTrabalhadas
+    }
+}
+
+let salarios: [SalarioProtocol] = [Clt(salarioBase: 4000, beneficios: 1500), Pj(valorHora: 120, horasTrabalhadas: 120)]
+
+pulaLinhaNoConsole()
+
+for funcionario in salarios {
+    let salario: Double = funcionario.calcularSalario()
+    print("- Salário: R$\(salario)")
+}
+
+
+
+
+
 func pulaLinhaNoConsole() {
     print("\n")
 }
