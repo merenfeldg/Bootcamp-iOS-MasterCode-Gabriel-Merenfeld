@@ -201,7 +201,28 @@ for pagamento in pagamentos {
 // Regras
 //O código que envia a mensagem não pode saber qual é o tipo da notificação
 
+class Notificacao {
+    func enviar(mensagem: String) {}
+}
 
+class Email: Notificacao {
+    override func enviar(mensagem: String) {
+        print("[Email]: \(mensagem)")
+    }
+}
+
+class Sms: Notificacao {
+    override func enviar(mensagem: String) {
+        print("[SMS]: \(mensagem)")
+    }
+}
+
+let notificacoes: [Notificacao] = [Email(), Sms()]
+pulaLinhaNoConsole()
+
+for notificacao in notificacoes {
+    notificacao.enviar(mensagem: "Eu quero pastel de queijo")
+}
 
 //Desafio 3 – Cofre Digital
 
