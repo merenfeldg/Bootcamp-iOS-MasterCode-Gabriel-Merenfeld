@@ -432,6 +432,34 @@ class Pix: Pagamento {
 //Subclasses:
 //Carro
 //Moto
+
+class Veiculo2 {
+    let modelo: String
+    
+    init(modelo: String) {
+        self.modelo = modelo
+    }
+    
+    func mover() {
+        print("O veículo está se movendo.")
+    }
+}
+
+class Carro: Veiculo2 {
+    
+    override func mover() {
+        print("O carro \(modelo) está dirigindo na estrada...")
+    }
+}
+
+class Moto: Veiculo2 {
+    
+    override func mover() {
+        print("A moto \(modelo) está acelerando na pista...")
+    }
+}
+
+
 //3️⃣ ESTRUTURA DE REPETIÇÃO (5)
 //🧩 Desafio 11 — Números Pares
 //Objetivo:
