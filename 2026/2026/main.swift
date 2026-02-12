@@ -134,6 +134,46 @@ class Carrinho {
 //Dicas:
 //Use if para validação
 //Saldo inicia em 0
+
+struct Cliente {
+    let nome: String
+    let cpf: String
+}
+
+class ContaBancaria {
+    let cliente: Cliente
+    private var saldo: Double = 0
+    
+    init(cliente: Cliente) {
+        self.cliente = cliente
+    }
+    
+    func depositarSaldo(valor: Double) {
+        saldo += valor
+    }
+    
+    func sacarSaldo(valor: Double) -> Result<Double, ContaBancariaError> {
+        guard valor > saldo else {
+            return .failure(.valorMaiorQueSaldo)
+        }
+        saldo -= valor
+        return .success(valor)
+    }
+}
+
+enum ContaBancariaError: Error {
+    case valorMaiorQueSaldo
+    
+    var message: String {
+        switch self {
+            case .valorMaiorQueSaldo:
+                return "Não é permitdo sacar um valor maior que o saldo atual"
+        }
+    }
+}
+
+
+
 //🧩 Desafio 4 — Sistema Escolar
 //Cenário real:
 //Sistema que calcula média do aluno.
