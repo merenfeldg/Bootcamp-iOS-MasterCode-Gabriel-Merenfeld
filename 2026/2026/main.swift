@@ -525,3 +525,9 @@ for numero in stride(from: 10, through: 0, by: -1) {
 //Dicas:
 //Somar
 //Dividir pela quantidade
+
+let notas = [8.5, 7.0, 9.0, 6.5]
+let quantidadeNotas = Double(notas.count)
+let somaNotas: Double = notas.reduce(0) { $0 + $1 }
+let mediaNotas = somaNotas / quantidadeNotas
+
