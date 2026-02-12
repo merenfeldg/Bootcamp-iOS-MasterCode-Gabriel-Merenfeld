@@ -191,6 +191,38 @@ enum ContaBancariaError: Error {
 //Dicas:
 //Use array de Double
 //Use reduce ou loop
+
+struct Aluno {
+    let nome: String
+    let matricula: String
+}
+
+class Matricula {
+    let aluno: Aluno
+    var notas: [Double]
+    
+    init(aluno: Aluno, notas: [Double]) {
+        self.aluno = aluno
+        self.notas = notas
+    }
+    
+    func calculaMediaAluno() -> Double {
+        
+        let somaDasNotas: Double = notas.reduce(0) { $0 + $1 }
+        let quantidadeDeNotas = Double(notas.count)
+        
+        return somaDasNotas / quantidadeDeNotas
+    }
+    
+    func mostraSituacaoDoAluno() -> String {
+        let mediaNotas: Double = calculaMediaAluno()
+        
+        return mediaNotas >= 7 ? "Aprovado" : "Reprovado"
+    }
+}
+
+
+
 //🧩 Desafio 5 — Frota de Veículos
 //Cenário real:
 //Empresa de logística controla veículos.
