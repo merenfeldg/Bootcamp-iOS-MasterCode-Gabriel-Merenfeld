@@ -467,6 +467,19 @@ class Moto: Veiculo2 {
 //Dicas:
 //Use for
 //Use % 2
+
+func verificaNumeroEhPar(_ numero: Int) -> Bool{
+    return numero % 2 == 0
+}
+
+for numero in 1...100 {
+    if verificaNumeroEhPar(numero) {
+        print("O número: \(numero) é par")
+    }
+}
+
+
+
 //🧩 Desafio 12 — Soma de Compras
 //Cenário:
 //Caixa de supermercado.
