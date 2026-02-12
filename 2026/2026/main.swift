@@ -277,6 +277,27 @@ class Frota {
 //Dicas:
 //Use override
 //Use herança
+
+class Animal {
+    func emitirSom() {
+        print("Emitindo som...")
+    }
+}
+
+class Cachorro: Animal {
+    override func emitirSom() {
+        print("Latindo")
+    }
+}
+
+class Gato: Animal {
+    override func emitirSom() {
+        print("Miando")
+    }
+}
+
+
+
 //🧩 Desafio 7 — Funcionários e Bônus
 //Cenário:
 //Empresa paga bônus diferente.
