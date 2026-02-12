@@ -153,7 +153,7 @@ class ContaBancaria {
     }
     
     func sacarSaldo(valor: Double) -> Result<Double, ContaBancariaError> {
-        guard valor > saldo else {
+        guard valor <= saldo else {
             return .failure(.valorMaiorQueSaldo)
         }
         saldo -= valor
