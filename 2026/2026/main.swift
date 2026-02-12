@@ -83,6 +83,38 @@ var funcionario = Funcionario(
 //Use Array
 //Use reduce ou loop
 //Crie funções separadas
+
+struct Produto: Equatable {
+    var nome: String
+    var preco: Double
+}
+
+class Carrinho {
+    private(set) var produtos: [Produto] = []
+    
+    func adicionaNovoProduto(_ novoProduto: Produto) {
+        produtos.append(novoProduto)
+    }
+    
+    func removeProduto(_ produto: Produto) {
+        if let index = produtos.firstIndex(of: produto) {
+            produtos.remove(at: index)
+        }
+    }
+    
+    func calculaValorTotal() -> Double {
+        return produtos.reduce(0) { $0 + $1.preco }
+    }
+    
+    func mostraProdutos() {
+        produtos.forEach {
+            print($0.nome)
+        }
+    }
+}
+
+
+
 //🧩 Desafio 3 — Conta Bancária
 //Cenário real:
 //Sistema bancário simples.
