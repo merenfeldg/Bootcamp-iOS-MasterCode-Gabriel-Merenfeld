@@ -346,6 +346,40 @@ class Desenvolvedor: Funcionario2 {
 //Dicas:
 //Use .pi
 //Override
+
+class FormaGeometrica {
+    
+    let pi: Double = 3.1416
+    
+    func calculaArea() -> Double { 0.0 }
+}
+
+class Quadrado: FormaGeometrica {
+    
+    let valorLado: Double
+    
+    init(valorLado: Double) {
+        self.valorLado = valorLado
+    }
+    
+    override func calculaArea() -> Double {
+        return valorLado * valorLado
+    }
+}
+
+class Circulo: FormaGeometrica {
+    
+    let valorRaio: Double
+    
+    init(valorRaio: Double) {
+        self.valorRaio = valorRaio
+    }
+    
+    override func calculaArea() -> Double {
+        return super.pi * valorRaio * valorRaio
+    }
+}
+
 //🧩 Desafio 9 — Pagamentos
 //Cenário:
 //Gateway de pagamento.
@@ -355,6 +389,42 @@ class Desenvolvedor: Funcionario2 {
 //Boleto
 //Pix
 //Cada um processa diferente.
+
+class Pagamento {
+    let valor: Double
+    
+    init(valor: Double) {
+        self.valor = valor
+    }
+    
+    func processar() {
+        print("Processando pagamento...")
+    }
+}
+
+class Cartao: Pagamento {
+    
+    override func processar() {
+        print("Processando pagamento no cartão no valor de R$ \(valor)")
+    }
+}
+
+class Boleto: Pagamento {
+    
+    override func processar() {
+        print("Gerando boleto no valor de R$ \(valor)")
+    }
+}
+
+class Pix: Pagamento {
+    
+    override func processar() {
+        print("Processando pagamento via Pix no valor de R$ \(valor)")
+    }
+}
+
+
+
 //🧩 Desafio 10 — Veículos
 //Cenário:
 //Simulador de direção.
