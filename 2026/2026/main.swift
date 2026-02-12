@@ -512,6 +512,13 @@ func gerarTabuada(do numero: Int) {
 //10 até 0.
 //Dicas:
 //stride
+
+for numero in stride(from: 10, through: 0, by: -1) {
+    print(numero)
+}
+
+
+
 //🧩 Desafio 15 — Média de Notas
 //Cenário:
 //Professor calculando média.
