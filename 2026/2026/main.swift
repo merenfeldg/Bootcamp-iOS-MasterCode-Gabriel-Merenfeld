@@ -486,12 +486,27 @@ for numero in 1...100 {
 //Array: valores de compras.
 //Objetivo:
 //Somar tudo.
+
+let carrinhoCompras: [Double] = [20, 35.5, 100, 90, 21.99, 43, 2.99]
+let valorTotalCarrinho = carrinhoCompras.reduce(0) { $0 + $1 }
+
+
 //🧩 Desafio 13 — Tabuada
 //Objetivo:
 //Gerar tabuada 1 → 10.
 //Dicas:
 //Loop
 //Multiplicação
+
+func gerarTabuada(do numero: Int) {
+    for i in 1...10 {
+        let resultado = numero * i
+        print("\(i) * \(numero) = \(resultado)")
+    }
+}
+
+
+
 //🧩 Desafio 14 — Contagem Regressiva
 //Objetivo:
 //10 até 0.
