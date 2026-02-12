@@ -238,6 +238,32 @@ class Matricula {
 //Dicas:
 //Use array
 //Faça loop para listar
+
+struct Veiculo {
+    let modelo: String
+    let placa: String
+}
+
+class Frota {
+    private var veiculos: [Veiculo]
+    
+    init(veiculos: [Veiculo]) {
+        self.veiculos = veiculos
+    }
+    
+    func adicionaVeiculo(_ novoVeiculo: Veiculo) {
+        veiculos.append(novoVeiculo)
+    }
+    
+    func listaVeiculos() {
+        veiculos.forEach {
+            print("MODELO: \($0.modelo)  |  PLACA: \($0.placa)")
+        }
+    }
+}
+
+
+
 //2️⃣ POO (5)
 //🧩 Desafio 6 — Sistema de Animais
 //Cenário:
