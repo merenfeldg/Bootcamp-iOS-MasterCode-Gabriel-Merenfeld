@@ -310,6 +310,31 @@ class Gato: Animal {
 //Dicas:
 //Polimorfismo
 //Método bonus()
+
+class Funcionario2 {
+    var salario: Double
+    
+    init(salario: Double) {
+        self.salario = salario
+    }
+    
+    func calculaBonus() -> Double { 0 }
+}
+
+class Gerente: Funcionario2 {
+    override func calculaBonus() -> Double {
+        return super.salario * 0.2
+    }
+}
+
+class Desenvolvedor: Funcionario2 {
+    override func calculaBonus() -> Double {
+        return super.salario * 0.1
+    }
+}
+
+
+
 //🧩 Desafio 8 — Formas Geométricas
 //Cenário:
 //App educacional de matemática.
