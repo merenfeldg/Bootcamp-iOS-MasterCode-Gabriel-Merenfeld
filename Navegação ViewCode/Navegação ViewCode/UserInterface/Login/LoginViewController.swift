@@ -29,6 +29,7 @@ class LoginViewController: UIViewController {
     }
     
     private func setupViewController() {
+        navigationItem.hidesBackButton = true
         contentView.delegate(self)
     }
 }
@@ -40,7 +41,7 @@ extension LoginViewController: LoginScreenDelegateProtocol {
         doNothing()
     }
     
-    func tappedIAlreadyHaveAnAccountSecundaryButton() {
+    func tappedIDontHaveAnAccountSecundaryButton() {
         goToRegisterScreen()
     }
     

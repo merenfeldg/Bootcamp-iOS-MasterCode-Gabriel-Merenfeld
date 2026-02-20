@@ -80,7 +80,7 @@ class LoginScreen: UIView {
     }
     
     @objc private func secundaryButtonAction() {
-        delegate?.tappedIAlreadyHaveAnAccountSecundaryButton()
+        delegate?.tappedIDontHaveAnAccountSecundaryButton()
     }
 }
 

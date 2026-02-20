@@ -30,5 +30,21 @@ class RegisterViewController: UIViewController {
     
     private func setupViewController() {
         navigationItem.hidesBackButton = true
+        contentView.delegate(self)
     }
+}
+
+extension RegisterViewController: RegisterScreenDelegateProtocol {
+    func tappedRegisterPrimaryButton() {
+        doNothing()
+    }
+    
+    func tappedIAlreadyHaveAnAccountSecundaryButton() {
+        goToLoginScreen()
+    }
+    
+    private func goToLoginScreen() {
+        navigationController?.popViewController(animated: true)
+    }
+    private func doNothing() {}
 }

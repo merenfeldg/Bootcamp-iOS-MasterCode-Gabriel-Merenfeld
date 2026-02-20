@@ -7,5 +7,5 @@
 
 protocol LoginScreenDelegateProtocol: AnyObject {
     func tappedLoginPrimaryButton()
-    func tappedIAlreadyHaveAnAccountSecundaryButton()
+    func tappedIDontHaveAnAccountSecundaryButton()
 }

@@ -9,6 +9,8 @@ import UIKit
 
 class RegisterScreen: UIView {
     
+    private weak var delegate: RegisterScreenDelegateProtocol?
+    
     private lazy var frajolaImage: UIImageView = {
         let image = UIImageView()
         
@@ -55,7 +57,7 @@ class RegisterScreen: UIView {
     private lazy var primaryButton: UIButton = {
         let button = CustomPrimaryButton()
         
-        button.setTitle("Cadastrar", for: .normal)
+        button.setTitle("Login", for: .normal)
         
         return button
     }()
@@ -63,7 +65,7 @@ class RegisterScreen: UIView {
     private lazy var secundaryButton: UIButton = {
         let button = CustomSecundaryButton()
         
-        button.setTitle("Já tem uma conta? Clique aqui", for: .normal)
+        button.setTitle("Já tenho uma conta", for: .normal)
         
         return button
     }()
@@ -76,7 +78,17 @@ class RegisterScreen: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func delegate(_ delegate: RegisterScreenDelegateProtocol) {
+        self.delegate = delegate
+    }
     
+    @objc private func primaryButtonAction() {
+        delegate?.tappedRegisterPrimaryButton()
+    }
+    
+    @objc private func secundaryButtonAction() {
+        delegate?.tappedIAlreadyHaveAnAccountSecundaryButton()
+    }
 }
 
 extension RegisterScreen {
@@ -86,6 +98,7 @@ extension RegisterScreen {
         addElements()
         disableAutoresizingMaskInAllElements()
         setupConstraints()
+        configActions()
     }
     
     private func addElements() {
@@ -136,5 +149,11 @@ extension RegisterScreen {
             secundaryButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
             secundaryButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24)
         ])
+    }
+    
+    private func configActions() {
+        primaryButton.addTarget(self, action: #selector(primaryButtonAction), for: .touchUpInside)
+        
+        secundaryButton.addTarget(self, action: #selector(secundaryButtonAction), for: .touchUpInside)
     }
 }
