@@ -9,6 +9,8 @@ import UIKit
 
 class LoginScreen: UIView {
     
+    private weak var delegate: LoginScreenDelegateProtocol?
+    
     private lazy var patolinoImage: UIImageView = {
         let image = UIImageView()
         
@@ -68,6 +70,18 @@ class LoginScreen: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func delegate(_ delegate: LoginScreenDelegateProtocol) {
+        self.delegate = delegate
+    }
+    
+    @objc private func primaryButtonAction() {
+        delegate?.tappedLoginPrimaryButton()
+    }
+    
+    @objc private func secundaryButtonAction() {
+        delegate?.tappedIAlreadyHaveAnAccountSecundaryButton()
+    }
 }
 
 //MARK: - Configuration Screen
@@ -78,6 +92,7 @@ extension LoginScreen {
         addElements()
         disableAutoresizingMaskInAllElements()
         setupConstraints()
+        configActions()
     }
     
     private func addElements() {
@@ -121,5 +136,11 @@ extension LoginScreen {
             secundaryButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
             secundaryButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24)
         ])
+    }
+    
+    private func configActions() {
+        primaryButton.addTarget(self, action: #selector(primaryButtonAction), for: .touchUpInside)
+        
+        secundaryButton.addTarget(self, action: #selector(secundaryButtonAction), for: .touchUpInside)
     }
 }

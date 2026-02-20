@@ -16,8 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         
-        let initialScreen = LoginScreen()
-        let initialViewController = LoginViewController(contentView: initialScreen)
+        let initialViewController = DependecyInjector.madeLoginViewControllerDependecy
         
         let navigationController = UINavigationController(rootViewController: initialViewController)
         

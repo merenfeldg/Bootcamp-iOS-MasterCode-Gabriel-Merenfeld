@@ -9,9 +9,9 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    private let contentView: UIView
+    private let contentView: LoginScreen
     
-    init(contentView: UIView) {
+    init(contentView: LoginScreen) {
         self.contentView = contentView
         super.init(nibName: nil, bundle: nil)
     }
@@ -23,4 +23,31 @@ class LoginViewController: UIViewController {
     override func loadView() {
         view = contentView
     }
+    
+    override func viewDidLoad() {
+        setupViewController()
+    }
+    
+    private func setupViewController() {
+        contentView.delegate(self)
+    }
+}
+
+extension LoginViewController: LoginScreenDelegateProtocol {
+    
+    func tappedLoginPrimaryButton() {
+        doNothing()
+    }
+    
+    func tappedIAlreadyHaveAnAccountSecundaryButton() {
+        goToRegisterScreen()
+    }
+    
+    private func goToRegisterScreen() {
+        navigationController?.pushViewController(
+            DependecyInjector.madeRegisterViewControllerDependecy,
+            animated: true
+        )
+    }
+    private func doNothing() {}
 }
