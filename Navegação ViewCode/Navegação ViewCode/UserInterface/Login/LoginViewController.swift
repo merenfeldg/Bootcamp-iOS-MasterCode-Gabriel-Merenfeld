@@ -33,6 +33,7 @@ class LoginViewController: UIViewController {
     }
 }
 
+//MARK: - Configuration Actions
 extension LoginViewController: LoginScreenDelegateProtocol {
     
     func tappedLoginPrimaryButton() {

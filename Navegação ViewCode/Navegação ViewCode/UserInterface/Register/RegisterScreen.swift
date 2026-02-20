@@ -1,5 +1,5 @@
 //
-//  LoginScreen.swift
+//  RegisterScreen.swift
 //  Navegação ViewCode
 //
 //  Created by Gabriel Merenfeld on 20/02/26.
@@ -7,14 +7,12 @@
 
 import UIKit
 
-class LoginScreen: UIView {
+class RegisterScreen: UIView {
     
-    private weak var delegate: LoginScreenDelegateProtocol?
-    
-    private lazy var patolinoImage: UIImageView = {
+    private lazy var frajolaImage: UIImageView = {
         let image = UIImageView()
         
-        image.image = UIImage(named: "Patolino Image")
+        image.image = UIImage(named: "Frajola Image")
         
         return image
     }()
@@ -22,11 +20,19 @@ class LoginScreen: UIView {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         
-        label.text = "Fazer Login"
+        label.text = "Fazer Cadastro"
         label.font = .boldSystemFont(ofSize: 24)
         label.textColor = .black
         
         return label
+    }()
+    
+    private lazy var fullNameTextField: UITextField = {
+        let textField = CustomTextField()
+        
+        textField.placeholder = "Digite seu nome completo..."
+        
+        return textField
     }()
     
     private lazy var emailTextField: UITextField = {
@@ -49,7 +55,7 @@ class LoginScreen: UIView {
     private lazy var primaryButton: UIButton = {
         let button = CustomPrimaryButton()
         
-        button.setTitle("Login", for: .normal)
+        button.setTitle("Cadastrar", for: .normal)
         
         return button
     }()
@@ -57,7 +63,7 @@ class LoginScreen: UIView {
     private lazy var secundaryButton: UIButton = {
         let button = CustomSecundaryButton()
         
-        button.setTitle("Não tem um conta? Cadastre agora", for: .normal)
+        button.setTitle("Já tem uma conta? Clique aqui", for: .normal)
         
         return button
     }()
@@ -66,39 +72,27 @@ class LoginScreen: UIView {
         super.init(frame: .zero)
         setupView()
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func delegate(_ delegate: LoginScreenDelegateProtocol) {
-        self.delegate = delegate
-    }
     
-    @objc private func primaryButtonAction() {
-        delegate?.tappedLoginPrimaryButton()
-    }
-    
-    @objc private func secundaryButtonAction() {
-        delegate?.tappedIAlreadyHaveAnAccountSecundaryButton()
-    }
 }
 
-//MARK: - Configuration Screen
-extension LoginScreen {
+extension RegisterScreen {
     
     private func setupView() {
-        backgroundColor = .greenPatolino
+        backgroundColor = .yellowFrajola
         addElements()
         disableAutoresizingMaskInAllElements()
         setupConstraints()
-        configActions()
     }
     
     private func addElements() {
-        addSubview(patolinoImage)
+        addSubview(frajolaImage)
         addSubview(titleLabel)
         
+        addSubview(fullNameTextField)
         addSubview(emailTextField)
         addSubview(passwordTextField)
         
@@ -114,15 +108,19 @@ extension LoginScreen {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            patolinoImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 36),
-            patolinoImage.centerXAnchor.constraint(equalTo: centerXAnchor),
-            patolinoImage.heightAnchor.constraint(equalToConstant: 120),
-            patolinoImage.widthAnchor.constraint(equalToConstant: 80),
+            frajolaImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 36),
+            frajolaImage.centerXAnchor.constraint(equalTo: centerXAnchor),
+            frajolaImage.heightAnchor.constraint(equalToConstant: 120),
+            frajolaImage.widthAnchor.constraint(equalToConstant: 80),
             
-            titleLabel.topAnchor.constraint(equalTo: patolinoImage.bottomAnchor, constant: 16),
+            titleLabel.topAnchor.constraint(equalTo: frajolaImage.bottomAnchor, constant: 16),
             titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             
-            emailTextField.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 48),
+            fullNameTextField.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 48),
+            fullNameTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
+            fullNameTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
+            
+            emailTextField.topAnchor.constraint(equalTo: fullNameTextField.bottomAnchor, constant: 24),
             emailTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
             emailTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
             
@@ -130,7 +128,7 @@ extension LoginScreen {
             passwordTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
             passwordTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
             
-            primaryButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 200),
+            primaryButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 130),
             primaryButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
             primaryButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
             
@@ -138,11 +136,5 @@ extension LoginScreen {
             secundaryButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
             secundaryButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24)
         ])
-    }
-    
-    private func configActions() {
-        primaryButton.addTarget(self, action: #selector(primaryButtonAction), for: .touchUpInside)
-        
-        secundaryButton.addTarget(self, action: #selector(secundaryButtonAction), for: .touchUpInside)
     }
 }

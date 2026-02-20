@@ -9,9 +9,9 @@ import UIKit
 
 class RegisterViewController: UIViewController {
     
-    private let contentView: UIView
+    private let contentView: RegisterScreen
     
-    init(contentView: UIView) {
+    init(contentView: RegisterScreen) {
         self.contentView = contentView
         super.init(nibName: nil, bundle: nil)
     }
@@ -22,5 +22,13 @@ class RegisterViewController: UIViewController {
     
     override func loadView() {
         view = contentView
+    }
+    
+    override func viewDidLoad() {
+        setupViewController()
+    }
+    
+    private func setupViewController() {
+        navigationItem.hidesBackButton = true
     }
 }
