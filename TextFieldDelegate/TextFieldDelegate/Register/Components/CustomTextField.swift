@@ -26,7 +26,7 @@ class CustomTextField: UITextField {
         layer.cornerRadius = 8
         layer.masksToBounds = true
         layer.borderColor = UIColor.lightGray.cgColor
-        layer.borderWidth = 1
+        layer.borderWidth = 3
         borderStyle = .none
         heightAnchor.constraint(equalToConstant: 48).isActive = true
     }

@@ -22,7 +22,6 @@ class CustomPrimaryButton: UIButton {
     private func setupStyle() {
         titleLabel?.font = .boldSystemFont(ofSize: 16)
         setTitleColor(.white, for: .normal)
-        backgroundColor = .black
         layer.cornerRadius = 8
         heightAnchor.constraint(equalToConstant: 48).isActive = true
     }

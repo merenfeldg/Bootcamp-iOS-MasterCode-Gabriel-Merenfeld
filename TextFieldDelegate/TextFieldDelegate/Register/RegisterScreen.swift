@@ -13,6 +13,12 @@ protocol RegisterScreenDelegate: AnyObject {
 
 class RegisterScreen: UIView {
     
+    var enabledButton: Bool = false {
+        didSet {
+            primaryButton.isEnabled = enabledButton
+        }
+    }
+    
     private weak var delegate: RegisterScreenDelegate?
     
     private lazy var titleLabel: UILabel = {
@@ -29,6 +35,7 @@ class RegisterScreen: UIView {
         let textField = CustomTextField()
         
         textField.placeholder = "Digite seu nome completo..."
+        textField.tag = TextFieldType.name.rawValue
         
         return textField
     }()
@@ -37,6 +44,7 @@ class RegisterScreen: UIView {
         let textField = CustomTextField()
         
         textField.placeholder = "Digite seu email..."
+        textField.tag = TextFieldType.email.rawValue
         textField.keyboardType = .emailAddress
         
         return textField
@@ -46,6 +54,7 @@ class RegisterScreen: UIView {
         let textField = CustomTextField()
         
         textField.placeholder = "Digite sua senha..."
+        textField.tag = TextFieldType.password.rawValue
         textField.isSecureTextEntry = true
         
         return textField
@@ -55,6 +64,7 @@ class RegisterScreen: UIView {
         let textField = CustomTextField()
         
         textField.placeholder = "Confirme sua senha..."
+        textField.tag = TextFieldType.confirmPassword.rawValue
         textField.isSecureTextEntry = true
         
         return textField
@@ -65,6 +75,7 @@ class RegisterScreen: UIView {
         
         button.setTitle("Login", for: .normal)
         button.addTarget(self, action: #selector(primaryButtonAction), for: .touchUpInside)
+        button.backgroundColor = enabledButton ? .black : .lightGray
         
         return button
     }()
@@ -83,6 +94,26 @@ class RegisterScreen: UIView {
     
     @objc func primaryButtonAction() {
         delegate?.tappedPrimaryButton()
+    }
+    
+    func setTextFieldsDelegate(_ delegate: UITextFieldDelegate) {
+        nameTextField.delegate = delegate
+        emailTextField.delegate = delegate
+        passwordTextField.delegate = delegate
+        confirmPasswordTextField.delegate = delegate
+    }
+}
+
+extension RegisterScreen {
+    
+    func selectTextField(_ textField: UITextField) {
+        textField.layer.borderColor = UIColor.black.cgColor
+    }
+    func showIncorrectBorderTextField(_ textField: UITextField) {
+        textField.layer.borderColor = UIColor.red.cgColor
+    }
+    func showCorrectBorderTextField(_ textField: UITextField) {
+        textField.layer.borderColor = UIColor.green.cgColor
     }
 }
 
