@@ -105,7 +105,6 @@ extension RegisterViewController {
     }
     
     private func handleValidationResult(_ result: FormResult, from textField: UITextField) {
-        
         switch result {
             case .success:
                 numberValidForms += 1
