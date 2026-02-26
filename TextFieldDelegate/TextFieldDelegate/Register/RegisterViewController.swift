@@ -7,13 +7,18 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class RegisterViewController: UIViewController {
+
+    private var contentView: RegisterScreen?
+    
+    override func loadView() {
+        contentView = RegisterScreen()
+        view = contentView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-
 }
 
