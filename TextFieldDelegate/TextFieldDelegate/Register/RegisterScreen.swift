@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol RegisterScreenDelegate: AnyObject {
+    func tappedPrimaryButton()
+}
+
 class RegisterScreen: UIView {
+    
+    private weak var delegate: RegisterScreenDelegate?
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -58,9 +64,14 @@ class RegisterScreen: UIView {
         let button = CustomPrimaryButton()
         
         button.setTitle("Login", for: .normal)
+        button.addTarget(self, action: #selector(primaryButtonAction), for: .touchUpInside)
         
         return button
     }()
+    
+    func delegate(_ delegate: RegisterScreenDelegate) {
+        self.delegate = delegate
+    }
     
     init() {
         super.init(frame: .zero)
@@ -68,6 +79,10 @@ class RegisterScreen: UIView {
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc func primaryButtonAction() {
+        delegate?.tappedPrimaryButton()
     }
 }
 
