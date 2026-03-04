@@ -20,7 +20,16 @@ class TableViewViewController: UIViewController {
         super.viewDidLoad()
         screen?.backgroundColor = .red
     }
+}
 
-
+extension TableViewViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
 }
 

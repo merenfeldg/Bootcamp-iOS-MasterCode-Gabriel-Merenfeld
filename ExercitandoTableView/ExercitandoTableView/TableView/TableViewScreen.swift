@@ -17,8 +17,6 @@ class TableViewScreen: UIView {
         return tableView
     }()
     
-    lazy var elements: [UIView] = [tableView]
-    
     init() {
         super.init(frame: .zero)
         setupView()
@@ -36,13 +34,11 @@ extension TableViewScreen {
     func setupView() {
         addElements()
         disableAutoresizingMaskInAllElements()
-        configContraint()
+        configContraints()
     }
-    
+     
     func addElements() {
-        elements.forEach { element in
-            addSubview(element)
-        }
+        addSubview(tableView)
     }
     
     func disableAutoresizingMaskInAllElements() {
@@ -51,7 +47,7 @@ extension TableViewScreen {
         }
     }
     
-    func configContraint() {
+    func configContraints() {
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
