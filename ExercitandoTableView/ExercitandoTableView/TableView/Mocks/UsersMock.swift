@@ -5,7 +5,7 @@
 //  Created by Gabriel Merenfeld on 04/03/26.
 //
 
-let usersMock: [UserModel] = [
+var usersMock: [UserModel] = [
     UserModel(name: "Gabriel"),
     UserModel(name: "Mariana"),
     UserModel(name: "Pedro"),

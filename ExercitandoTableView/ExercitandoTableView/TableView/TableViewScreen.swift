@@ -13,6 +13,12 @@ class TableViewScreen: UIView {
         let tableView = UITableView()
         
         tableView.backgroundColor = .white
+        tableView.separatorStyle = .none
+        tableView.showsVerticalScrollIndicator = false
+        
+        tableView.register(PersonTableViewCell.self, forCellReuseIdentifier: PersonTableViewCell.identifier)
+        tableView.register(UserTableViewCell.self, forCellReuseIdentifier: UserTableViewCell.identifier)
+        
         
         return tableView
     }()

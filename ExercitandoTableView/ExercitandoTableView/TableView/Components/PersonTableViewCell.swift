@@ -22,6 +22,7 @@ class PersonTableViewCell: UITableViewCell {
         
         label.font = .systemFont(ofSize: 16, weight: .medium)
         label.textColor = .black
+        label.numberOfLines = 0
         
         return label
     }()
@@ -31,6 +32,7 @@ class PersonTableViewCell: UITableViewCell {
         
         label.font = .systemFont(ofSize: 14)
         label.textColor = .lightGray
+        label.numberOfLines = 0
         
         return label
     }()
@@ -53,38 +55,34 @@ class PersonTableViewCell: UITableViewCell {
 // MARK: - CONFIGURATION VIEW
 extension PersonTableViewCell {
     
-    func setupView() {
+    private func setupView() {
         addElements()
         disableTranslatesAutoresizingMaskInAllElements()
         configConstraints()
     }
     
-    func addElements() {
-        addSubview(iconImage)
-        addSubview(nameLabel)
-        addSubview(emailLabel)
+    private func addElements() {
+        contentView.addSubview(iconImage)
+        contentView.addSubview(nameLabel)
+        contentView.addSubview(emailLabel)
     }
     
-    func disableTranslatesAutoresizingMaskInAllElements() {
+    private func disableTranslatesAutoresizingMaskInAllElements() {
         subviews.forEach { element in
             element.translatesAutoresizingMaskIntoConstraints = false
         }
     }
     
-    func configConstraints() {
+    private func configConstraints() {
         NSLayoutConstraint.activate([
-            iconImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            iconImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            iconImage.heightAnchor.constraint(equalToConstant: 100),
-            iconImage.widthAnchor.constraint(equalToConstant: 100),
+            iconImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            iconImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 100),
+            iconImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -100),
+            iconImage.heightAnchor.constraint(equalToConstant: 60),
+            iconImage.widthAnchor.constraint(equalToConstant: 60),
             
-            nameLabel.topAnchor.constraint(equalTo: iconImage.topAnchor, constant: 16),
-            nameLabel.leadingAnchor.constraint(equalTo: iconImage.leadingAnchor, constant: 20),
-            nameLabel.trailingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: -20),
-            
-            emailLabel.topAnchor.constraint(equalTo: nameLabel.topAnchor, constant: 8),
-            emailLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor, constant: 20),
-            emailLabel.trailingAnchor.constraint(equalTo: nameLabel.trailingAnchor, constant: -20),
+            nameLabel.leadingAnchor.constraint(equalTo: iconImage.trailingAnchor, constant: 8),
+            nameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])
     }
 }

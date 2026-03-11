@@ -9,6 +9,8 @@ import UIKit
 
 class UserTableViewCell: UITableViewCell {
     
+    static let identifier = String(describing: UserTableViewCell.self)
+    
     lazy var iconImage: UIImageView = {
         let imageView = UIImageView()
         
@@ -19,6 +21,8 @@ class UserTableViewCell: UITableViewCell {
         let label = UILabel()
        
         label.font = .boldSystemFont(ofSize: 24)
+        label.numberOfLines = 0
+        label.textColor = .black
         
         return label
     }()
@@ -29,6 +33,11 @@ class UserTableViewCell: UITableViewCell {
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setupCell(user: UserModel) {
+        iconImage.image = UIImage(systemName: user.icon)
+        nameLabel.text = user.name
     }
 }
 
@@ -42,8 +51,8 @@ extension UserTableViewCell {
     }
     
     private func addElements() {
-        addSubview(iconImage)
-        addSubview(nameLabel)
+        contentView.addSubview(iconImage)
+        contentView.addSubview(nameLabel)
     }
     
     private func disableTranslatesAutoresizingMaskInAllElements() {
