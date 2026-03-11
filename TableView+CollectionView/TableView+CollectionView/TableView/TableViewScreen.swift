@@ -12,7 +12,8 @@ class TableViewScreen: UIView {
         let tableView = UITableView()
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.backgroundColor = .yellow
+        tableView.separatorStyle = .none
+        tableView.register(ItemTableViewCell.self, forCellReuseIdentifier: ItemTableViewCell.identifier)
         
         return tableView
     }()
@@ -43,5 +44,10 @@ extension TableViewScreen {
             tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
+    }
+    
+    func setCollectionViewProtocols(datasource: UITableViewDataSource, delegate: UITableViewDelegate) {
+        tableView.delegate = delegate
+        tableView.dataSource = datasource
     }
 }
