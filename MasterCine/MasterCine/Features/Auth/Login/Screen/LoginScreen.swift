@@ -8,13 +8,15 @@
 import UIKit
 
 protocol LoginScreenDelegateProtocol: AnyObject {
-    func tappedLoginPrimaryButton()
+    func tappedLoginPrimaryButton(login: LoginModel)
     func tappedHaventAccountTerciaryButton()
 }
 
 class LoginScreen: UIView {
-    weak private var delegate: LoginScreenDelegateProtocol?
+    private var loginModel = LoginModel()
+    weak var delegate: LoginScreenDelegateProtocol?
     
+//MARK: - COMPONENTS CONFIGURATION
     lazy var filmImage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "film")
@@ -36,7 +38,6 @@ class LoginScreen: UIView {
         
         textField.placeholder = "Digite seu email..."
         textField.borderStyle = .roundedRect
-        textField.tag = LoginTextFieldType.email.rawValue
         
         return textField
     }()
@@ -46,7 +47,6 @@ class LoginScreen: UIView {
         
         textField.placeholder = "Digite sua senha..."
         textField.borderStyle = .roundedRect
-        textField.tag = LoginTextFieldType.password.rawValue
         textField.isSecureTextEntry = true
         
         return textField
@@ -59,7 +59,6 @@ class LoginScreen: UIView {
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 8.0
-        button.addTarget(self, action: #selector(tappedLoginPrimaryButtonAction), for: .touchUpInside)
         
         return button
     }()
@@ -69,11 +68,11 @@ class LoginScreen: UIView {
         
         button.setTitle("Não tem uma conta? Criar conta", for: .normal)
         button.setTitleColor(.systemBlue, for: .normal)
-        button.addTarget(self, action: #selector(tappedHaventAccountTerciaryButtonAction), for: .touchUpInside)
         
         return button
     }()
     
+// MARK: - INITS
     init() {
         super.init(frame: .zero)
         setupView()
@@ -81,47 +80,39 @@ class LoginScreen: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
+
+// MARK: - ACTIONS CONFIGURATION
+extension LoginScreen {
+    private func configActions() {
+        enterPrimaryButton.addTarget(self, action: #selector(tappedLoginPrimaryButtonAction), for: .touchUpInside)
+        
+        haventAccountTerciaryButton.addTarget(self, action: #selector(tappedHaventAccountTerciaryButtonAction), for: .touchUpInside)
+    }
     
     @objc func tappedLoginPrimaryButtonAction() {
+        loginModel.email = emailTextField.text ?? ""
+        loginModel.password = passwordTextField.text ?? ""
         
+        delegate?.tappedLoginPrimaryButton(login: loginModel)
     }
     
     @objc func tappedHaventAccountTerciaryButtonAction() {
-        
-    }
-    
-    func setTextFieldsDelegate(_ delegate: UITextFieldDelegate) {
-        emailTextField.delegate = delegate
-        passwordTextField.delegate = delegate
+        delegate?.tappedHaventAccountTerciaryButton()
     }
 }
 
-extension LoginScreen {
-    func selectTextField(_ textField: UITextField) {
-        textField.layer.borderColor = UIColor.black.cgColor
-    }
-    func showCorrectBorderTextField(_ textField: UITextField) {
-        textField.layer.borderColor = UIColor.green.cgColor
-    }
-    func showIncorrectBorderTextField(_ textField: UITextField) {
-        textField.layer.borderColor = UIColor.red.cgColor
-    }
-}
-
-// MARK: - Config View
-extension LoginScreen {
-    func delegate(_ delegate: LoginScreenDelegateProtocol) {
-        self.delegate = delegate
-    }
-    
-    func setupView() {
+// MARK: - CONFIGURATION VIEW
+extension LoginScreen {    
+    private func setupView() {
         backgroundColor = .white
         addElements()
         disableTranslatesAutoresizingMaskInAllElements()
         configConstraints()
+        configActions()
     }
     
-    func addElements() {
+    private func addElements() {
         addSubview(filmImage)
         addSubview(titleLabel)
         
@@ -132,13 +123,18 @@ extension LoginScreen {
         addSubview(haventAccountTerciaryButton)
     }
     
-    func disableTranslatesAutoresizingMaskInAllElements() {
+    private func disableTranslatesAutoresizingMaskInAllElements() {
         subviews.forEach { element in
             element.translatesAutoresizingMaskIntoConstraints = false
         }
     }
     
-    func configConstraints() {
+    func setTextFieldsDelegate(_ delegate: UITextFieldDelegate) {
+        emailTextField.delegate = delegate
+        passwordTextField.delegate = delegate
+    }
+    
+    private func configConstraints() {
         NSLayoutConstraint.activate([
             filmImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 56),
             filmImage.centerXAnchor.constraint(equalTo: centerXAnchor),
