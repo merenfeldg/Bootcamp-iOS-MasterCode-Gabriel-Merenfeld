@@ -9,6 +9,7 @@ enum AuthError: Error {
     case emptyField
     case invalidEmailFormat
     case passwordFewerEightCaracters
+    case passwordNotMatchConfirmPassword
     case invalidEmail
     case invalidPassword
     
@@ -19,6 +20,7 @@ enum AuthError: Error {
             case .passwordFewerEightCaracters: "Senha precisa ter no mínimo 8 caracteres"
             case .invalidEmail: "Digite um e-mail válido"
             case .invalidPassword: "Digite uma senha válida"
+            case . passwordNotMatchConfirmPassword: "A senha não corresponde à confirmação de senha"
         }
     }
 }

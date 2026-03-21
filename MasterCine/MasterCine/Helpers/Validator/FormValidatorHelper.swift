@@ -31,6 +31,17 @@ struct FormValidatorHelper {
         
         return true
     }
+    
+    static func validateConfirmPassword(password: String, confirmPassword: String) -> Bool {
+        guard validatePassword(password) else {
+            return false
+        }
+        if case .failure = isPasswordAndConfirmPasswordMatch(password: password, confirmPassword: confirmPassword) {
+            return false
+        }
+        
+        return true
+    }
 }
 
 extension FormValidatorHelper {
@@ -53,5 +64,11 @@ extension FormValidatorHelper {
         return haveMoreThanEightCharacters
         ? .success(())
         : .failure(.passwordFewerEightCaracters)
+    }
+    
+    static func isPasswordAndConfirmPasswordMatch(password: String, confirmPassword: String) -> FormResult {
+        return password == confirmPassword
+        ? .success(())
+        : .failure(.passwordNotMatchConfirmPassword)
     }
 }

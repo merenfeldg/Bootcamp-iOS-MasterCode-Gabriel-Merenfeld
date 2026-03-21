@@ -1,20 +1,20 @@
 //
-//  LoginScreen.swift
+//  RegisterScreen.swift
 //  MasterCine
 //
-//  Created by Gabriel Merenfeld on 12/03/26.
+//  Created by Gabriel Merenfeld on 21/03/26.
 //
 
 import UIKit
 
-protocol LoginScreenDelegateProtocol: AnyObject {
-    func tappedLoginPrimaryButton(login: LoginModel)
-    func tappedHaventAccountTerciaryButton()
+protocol RegisterScreenDelegateProtocol: AnyObject {
+    func tappedCreateAccountPrimaryButton(register: RegisterModel)
+    func tappedHaveAnAccountTerciaryButton()
 }
 
-class LoginScreen: UIView {
-    private var loginModel = LoginModel()
-    weak var delegate: LoginScreenDelegateProtocol?
+class RegisterScreen: UIView {
+    private var registerModel = RegisterModel()
+    weak var delegate: RegisterScreenDelegateProtocol?
     
     //MARK: - COMPONENTS CONFIGURATION
     lazy var filmImage: UIImageView = {
@@ -26,7 +26,7 @@ class LoginScreen: UIView {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         
-        label.text = "MasterCine"
+        label.text = "Criar conta"
         label.textAlignment = .center
         label.font = .boldSystemFont(ofSize: 24)
         
@@ -52,10 +52,20 @@ class LoginScreen: UIView {
         return textField
     }()
     
-    lazy var enterPrimaryButton: UIButton = {
+    lazy var confirmPasswordTextField: UITextField = {
+        let textField = UITextField()
+        
+        textField.placeholder = "Digite novamente sua senha..."
+        textField.borderStyle = .roundedRect
+        textField.isSecureTextEntry = true
+        
+        return textField
+    }()
+    
+    lazy var createAccountPrimaryButton: UIButton = {
         let button = UIButton()
         
-        button.setTitle("Entrar", for: .normal)
+        button.setTitle("Criar Conta", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 8.0
@@ -63,11 +73,12 @@ class LoginScreen: UIView {
         return button
     }()
     
-    lazy var haventAccountTerciaryButton: UIButton = {
+    lazy var haveAccountTerciaryButton: UIButton = {
         let button = UIButton()
         
-        button.setTitle("Não tem uma conta? Criar conta", for: .normal)
+        button.setTitle("Já tenho uma conta", for: .normal)
         button.setTitleColor(.systemBlue, for: .normal)
+        button.layer.cornerRadius = 8.0
         
         return button
     }()
@@ -77,36 +88,14 @@ class LoginScreen: UIView {
         super.init(frame: .zero)
         setupView()
     }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
 
-// MARK: - ACTIONS CONFIGURATION
-extension LoginScreen {
-    private func configActions() {
-        enterPrimaryButton.addTarget(self, action: #selector(tappedLoginPrimaryButtonAction), for: .touchUpInside)
-        
-        haventAccountTerciaryButton.addTarget(self, action: #selector(tappedHaventAccountTerciaryButtonAction), for: .touchUpInside)
-    }
-    
-    @objc private func tappedLoginPrimaryButtonAction() {
-        updateLoginModelFromTextFields()
-        delegate?.tappedLoginPrimaryButton(login: loginModel)
-    }
-    
-    @objc private func tappedHaventAccountTerciaryButtonAction() {
-        delegate?.tappedHaventAccountTerciaryButton()
-    }
-    
-    private func updateLoginModelFromTextFields() {
-        loginModel.email = emailTextField.text ?? ""
-        loginModel.password = passwordTextField.text ?? ""
-    }
-}
-
-// MARK: - CONFIGURATION VIEW
-extension LoginScreen {
+//MARK: - CONFIGURATION VIEW
+extension RegisterScreen {
     private func setupView() {
         backgroundColor = .white
         addElements()
@@ -121,9 +110,10 @@ extension LoginScreen {
         
         addSubview(emailTextField)
         addSubview(passwordTextField)
+        addSubview(confirmPasswordTextField)
         
-        addSubview(enterPrimaryButton)
-        addSubview(haventAccountTerciaryButton)
+        addSubview(createAccountPrimaryButton)
+        addSubview(haveAccountTerciaryButton)
     }
     
     private func disableTranslatesAutoresizingMaskInAllElements() {
@@ -135,6 +125,7 @@ extension LoginScreen {
     func setTextFieldsDelegate(_ delegate: UITextFieldDelegate) {
         emailTextField.delegate = delegate
         passwordTextField.delegate = delegate
+        confirmPasswordTextField.delegate = delegate
     }
     
     private func configConstraints() {
@@ -158,15 +149,43 @@ extension LoginScreen {
             passwordTextField.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
             passwordTextField.heightAnchor.constraint(equalToConstant: 48),
             
-            enterPrimaryButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 16),
-            enterPrimaryButton.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-            enterPrimaryButton.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
-            enterPrimaryButton.heightAnchor.constraint(equalToConstant: 48),
+            confirmPasswordTextField.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 16),
+            confirmPasswordTextField.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            confirmPasswordTextField.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
+            confirmPasswordTextField.heightAnchor.constraint(equalToConstant: 48),
             
-            haventAccountTerciaryButton.topAnchor.constraint(equalTo: enterPrimaryButton.bottomAnchor, constant: 8),
-            haventAccountTerciaryButton.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-            haventAccountTerciaryButton.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
-            haventAccountTerciaryButton.heightAnchor.constraint(equalToConstant: 48),
+            createAccountPrimaryButton.topAnchor.constraint(equalTo: confirmPasswordTextField.bottomAnchor, constant: 16),
+            createAccountPrimaryButton.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            createAccountPrimaryButton.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
+            createAccountPrimaryButton.heightAnchor.constraint(equalToConstant: 48),
+            
+            haveAccountTerciaryButton.topAnchor.constraint(equalTo: createAccountPrimaryButton.bottomAnchor, constant: 8),
+            haveAccountTerciaryButton.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            haveAccountTerciaryButton.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
+            haveAccountTerciaryButton.heightAnchor.constraint(equalToConstant: 48),
         ])
+    }
+}
+// MARK: - ACTION CONFIGURATION
+extension RegisterScreen {
+    func configActions() {
+        createAccountPrimaryButton.addTarget(self, action: #selector(tappedCreateAccountPrimaryButtonAction), for: .touchUpInside)
+        
+        haveAccountTerciaryButton.addTarget(self, action: #selector(tappedHaveAccountTerciaryButtonAction), for: .touchUpInside)
+    }
+    
+    @objc private func tappedCreateAccountPrimaryButtonAction() {
+        updateRegisterModelFromTextFields()
+        delegate?.tappedCreateAccountPrimaryButton(register: registerModel)
+    }
+    
+    @objc private func tappedHaveAccountTerciaryButtonAction() {
+        
+    }
+    
+    private func updateRegisterModelFromTextFields() {
+        registerModel.email = emailTextField.text ?? ""
+        registerModel.password = passwordTextField.text ?? ""
+        registerModel.confirmPassword = confirmPasswordTextField.text ?? ""
     }
 }
