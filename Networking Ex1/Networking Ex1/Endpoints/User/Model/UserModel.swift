@@ -14,3 +14,5 @@ struct UserModel: Codable {
     let website: String
     let company: Company
 }
+
+typealias UserList = [UserModel]
