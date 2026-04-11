@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class PostsService {
+final class PostService {
     static let baseURL = "https://jsonplaceholder.typicode.com"
     
     static func fetchAllPosts(completion: @escaping (Result<PostList, ErrorHandler>) -> Void) {
