@@ -68,4 +68,63 @@ final class UserService {
         }
         task.resume()
     }
+    
+    static func fetchUserById(_ id: Int, completion: @escaping (Result<UserModel, ErrorHandler>) -> Void) {
+        let urlString = "\(baseURL)/users/\(id)"
+        
+        guard let url = URL(string: urlString) else {
+            let error = ErrorHandler(message: "Erro ao criar a URL", statusCode: nil)
+            DispatchQueue.main.async {
+                completion(.failure(error))
+            }
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            if let error {
+                let error = ErrorHandler(message: "Erro ao realizar a requisição: \(error.localizedDescription)", statusCode: nil)
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse else {
+                let error = ErrorHandler(message: "Resposta inválida", statusCode: nil)
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
+                return
+            }
+            
+            guard (200..<300).contains(httpResponse.statusCode) else {
+                let error = ErrorHandler(message: "Erro ao realizar a requisição.\nSTATUS CODE: \(httpResponse.statusCode)", statusCode: httpResponse.statusCode)
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
+                return
+            }
+            
+            guard let data else {
+                let error = ErrorHandler(message: "Nenhum dado foi retornado da requisição", statusCode: nil)
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
+                return
+            }
+            
+            do {
+                let user = try JSONDecoder().decode(UserModel.self, from: data)
+                DispatchQueue.main.async {
+                    completion(.success(user))
+                }
+            } catch {
+                let error = ErrorHandler(message: "Error ao processar dados recebidos: \(error.localizedDescription)", statusCode: nil)
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
+            }
+        }
+        task.resume()
+    }
 }
