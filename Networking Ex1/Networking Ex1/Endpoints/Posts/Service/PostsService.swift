@@ -239,4 +239,50 @@ final class PostsService {
         }
         task.resume()
     }
+    
+    static func deletePostById(_ id: Int, completion: @escaping (Result<Void, ErrorHandler>) -> Void) {
+        let urlString = "\(baseURL)/posts/\(id)"
+        
+        guard let url = URL(string: urlString) else {
+            let error = ErrorHandler(message: "Erro ao criar a URL", statusCode: nil)
+            DispatchQueue.main.async {
+                completion(.failure(error))
+            }
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error {
+                let error = ErrorHandler(message: "Erro ao realizar a requisição: \(error.localizedDescription)", statusCode: nil)
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse else {
+                let error = ErrorHandler(message: "Resposta inválida", statusCode: nil)
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
+                return
+            }
+            
+            guard (200..<300).contains(httpResponse.statusCode) else {
+                let error = ErrorHandler(message: "Erro ao realizar a requisição.\nSTATUS CODE: \(httpResponse.statusCode)", statusCode: httpResponse.statusCode)
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                completion(.success(()))
+            }
+        }
+        task.resume()
+    }
 }
