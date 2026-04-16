@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  Networking Ex1
+//  Networking Ex2
 //
-//  Created by Gabriel Merenfeld on 11/04/26.
+//  Created by Gabriel Merenfeld on 16/04/26.
 //
 
 import UIKit
@@ -11,13 +11,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
+
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        let viewController = MessagesViewController()
         
-        window?.rootViewController = viewController
+        window?.rootViewController = ViewController()
         window?.makeKeyAndVisible()
     }
 
