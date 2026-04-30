@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  Networking Ex1
+//  TestingCrashlytics
 //
-//  Created by Gabriel Merenfeld on 11/04/26.
+//  Created by Gabriel Merenfeld on 29/04/26.
 //
 
 import UIKit
@@ -16,9 +16,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        let viewController = ViewController()
         
-        window?.rootViewController = viewController
+        window?.rootViewController = ViewController()
         window?.makeKeyAndVisible()
     }
 
